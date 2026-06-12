@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# plat-analyse
 
-## Getting Started
+Application d'analyse financière — tableau de bord de vos dépenses.
 
-First, run the development server:
+## Prérequis
+
+- Node.js 18+
+- Compte Supabase (gratuit sur [supabase.com](https://supabase.com))
+
+## Installation
+
+```bash
+npm install
+```
+
+## Configuration Supabase
+
+1. Créez un projet sur [supabase.com](https://app.supabase.com)
+2. Dans l'éditeur SQL, exécutez le contenu de `supabase/schema.sql`
+3. Copiez les clés depuis **Project Settings → API** :
+
+```env
+# .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx...
+```
+
+## Lancement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Format CSV accepté
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Colonnes reconnues automatiquement :
+- **Poste / Libellé** : `poste`, `libellé`, `libelle`, `description`, `nom`, `name`
+- **Montant** : `montant`, `amount`, `total`, `valeur`
+- **Catégorie** : `categorie`, `catégorie`, `category`
+- **Date** : `date`, `jour`
 
-## Learn More
+Séparateurs acceptés : `,` `;` `|` tabulation
 
-To learn more about Next.js, take a look at the following resources:
+### Exemple
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```csv
+Date,Libellé,Montant,Catégorie
+2024-01-15,Loyer bureaux,-1500.00,Infrastructure
+2024-01-16,Amazon Web Services,-299.99,Logiciels
+2024-01-17,LinkedIn Ads,-450.00,Marketing
+```
