@@ -35,13 +35,7 @@ export default function LandingPage() {
           <span className="text-headline-sm font-bold text-on-surface">plat-analyse</span>
           <div className="flex items-center gap-md">
             <Link
-              href="/login"
-              className="text-label-md text-secondary hover:text-primary transition-colors"
-            >
-              Se connecter
-            </Link>
-            <Link
-              href="/register"
+              href="/importer"
               className="bg-primary-container text-white px-md py-sm rounded-lg text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs"
             >
               Commencer gratuitement
@@ -78,18 +72,12 @@ export default function LandingPage() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-md" style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}>
               <Link
-                href="/register"
+                href="/importer"
                 className="bg-primary text-white px-xl py-md rounded-xl text-label-md flex items-center gap-sm hover:-translate-y-0.5 transition-all"
                 style={{ boxShadow: '0 8px 24px rgba(0,74,198,0.2)' }}
               >
                 Commencer gratuitement
                 <ArrowRight size={16} strokeWidth={2} />
-              </Link>
-              <Link
-                href="/login"
-                className="text-label-md text-secondary px-xl py-md hover:text-on-surface transition-colors"
-              >
-                Se connecter
               </Link>
             </div>
           </div>
